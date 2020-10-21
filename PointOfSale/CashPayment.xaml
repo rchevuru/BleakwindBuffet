@@ -9,8 +9,6 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            
-           
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -29,32 +27,36 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0"   FontSize="15" HorizontalAlignment="Center">Customer</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="Green">$100</TextBlock>
-        <TextBox Grid.Row ="1" Grid.Column="0" HorizontalAlignment="Center"> Enter in a whole number</TextBox>
+        <TextBlock  x:Name="Customer" Grid.Row="0" Grid.Column="0"   FontSize="15" HorizontalAlignment="Center">Customer</TextBlock>
+        <TextBlock  Grid.Row="1" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="Green">$100</TextBlock>
+        <TextBox  Name="hundreaddollarResponse" Grid.Row ="1" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="2" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="Green">$50</TextBlock>
-        <TextBox Grid.Row ="2" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox Name="fiftydollarResponse" Grid.Row ="2" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="3" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="Green">$20</TextBlock>
-        <TextBox Grid.Row ="3" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox  Name="twentydollarResponse" Grid.Row ="3" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="4" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="Green">$10</TextBlock>
-        <TextBox Grid.Row ="4" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox Name="tendollarResponse" Grid.Row ="4" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="5" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="Green">$5</TextBlock>
-        <TextBox Grid.Row ="5" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox Name="fivedollarResponse" Grid.Row ="5" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="6" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="Green">$2</TextBlock>
-        <TextBox Grid.Row ="6" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox  Name="twodollarResponse" Grid.Row ="6" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="7" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="Green">$1</TextBlock>
-        <TextBox Grid.Row ="7" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
-        <TextBlock Grid.Row="8" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="DarkGoldenrod">$1</TextBlock>
-        <TextBox Grid.Row ="8" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox  Name="onedollarResponse" Grid.Row ="7" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBlock  Grid.Row="8" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="DarkGoldenrod">$1</TextBlock>
+        <TextBox  Name="oneCentResponse" Grid.Row ="8" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="9" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="DarkGoldenrod">50C</TextBlock>
-        <TextBox Grid.Row ="9" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox Name ="fiftyCentResponse" Grid.Row ="9" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="10" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="DarkGoldenrod">25C</TextBlock>
-        <TextBox Grid.Row ="10" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox Name ="twentyfiveCentResponse" Grid.Row ="10" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="11" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="DarkGoldenrod">10C</TextBlock>
-        <TextBox Grid.Row ="11" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <TextBox Name ="tenCentResponse" Grid.Row ="11" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
         <TextBlock Grid.Row="12" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="DarkGoldenrod">5C</TextBlock>
-        <TextBox Grid.Row ="12" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
-        <TextBlock></TextBlock>
+        <TextBox Name ="fiveCentResponse" Grid.Row ="12" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>
+        <!--><TextBlock Grid.Row="13" Grid.Column="0"   TextAlignment="Center" Width ="50" HorizontalAlignment="Left" Background="DarkGoldenrod">5C</TextBlock>
+        <TextBox Name ="oneCentResponse" Grid.Row ="13" Grid.Column="0" HorizontalAlignment="Center">Enter in a whole number</TextBox>-->
+        <local:subCash Grid.Row="14"></local:subCash>
     </Grid>
 </UserControl>
+
