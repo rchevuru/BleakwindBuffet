@@ -1,0 +1,74 @@
+﻿<!--
+    Author: Zachery Brunner
+    Class: DrinkSelectionScreen.xaml
+    Purpose: Allows the user to pick a drink from the currently available drinks
+    -->
+<UserControl x:Class="PointOfSale.CategoryScreens.DrinkSelectionScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.CategoryScreens"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="750">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="375"/>
+            <ColumnDefinition Width="375"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="413"/>
+            <RowDefinition Height="137"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0">
+            <StackPanel>
+                <Button
+                    x:Name="AretinoAppleJuiceButton"
+                    Content="Aretino Apple Juice"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 60"
+                    Click="SwitchScreenToSelectedDrinkItem"/>
+                
+                <Button
+                    x:Name="CandlehearthCoffeeButton"
+                    Content="Candlehearth Coffee"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedDrinkItem"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <StackPanel>
+                <Button
+                    x:Name="MarkarthMilkButton"
+                    Content="Markarth Milk"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 60"
+                    Click="SwitchScreenToSelectedDrinkItem"/>
+                
+                <Button
+                    x:Name="SailorSodaButton"
+                    Content="Sailor Soda"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedDrinkItem"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Button
+                x:Name="WarriorWaterButton"
+                Content="Warrior Water"
+                Height="100"
+                Width="350"
+                Click="SwitchScreenToSelectedDrinkItem"/>
+        </Grid>
+    </Grid>
+</UserControl>

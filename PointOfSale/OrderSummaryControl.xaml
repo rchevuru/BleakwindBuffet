@@ -1,0 +1,228 @@
+﻿<!--
+    Author: Zachery Brunner
+    Class: OrderSummaryControl.xaml
+    Purpose: The actively updating receipt for the current order
+    -->
+<UserControl x:Class="PointOfSale.OrderSummaryControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!--Bleakwind Buffet, Top of Receipt-->
+        <Grid Grid.Row="0">
+            <TextBlock x:Name="BleakwindBuffetTextBlock"
+                       Text="Bleakwind Buffet"
+                       
+                       FontSize="40"
+                       FontWeight="Heavy"
+                       FontFamily="Verdana"
+                       
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+        </Grid>
+
+        <!--Information Order# and Time-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <StackPanel x:Name="InformationNamesStackPanel">
+                    <TextBlock x:Name="OrderNumberTextBlock"
+                               Text="Order Number:"
+                               FontSize="25"/>
+                    <TextBlock x:Name="TimeOfDayTextBlock"
+                               Text="Time:"
+                               FontSize="25"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <StackPanel x:Name="InformationStackPanel">
+                    <TextBlock x:Name="OrderNumberTextBlockBinding"
+                               Text="{Binding Path=OrderNumber}"
+                               HorizontalAlignment="Right"
+                               FontSize="25"
+                               Margin="0 0 30 0"/>
+                    
+                    <TextBlock x:Name="TimeOfDayTextBlockBinding"
+                               Text="{Binding Path=DisplayDate}"
+                               HorizontalAlignment="Right"
+                               FontSize="25"
+                               Margin="0 0 30 0"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+         
+        <!--Receipt-->
+        <Grid Grid.Row="2">
+            <ListView x:Name="OrderItemView"
+                      ItemsSource="{Binding Path=Items}"
+                      SelectionChanged="OrderItemView_SelectionChanged"
+                      HorizontalContentAlignment="Stretch"
+                      HorizontalAlignment="Left"
+                      ScrollViewer.VerticalScrollBarVisibility="Visible"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                      Width="475">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ListView HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Stretch">
+                            <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Stretch">
+                                <ListViewItem>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="325"/>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="50"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid Grid.Column="0">
+                                            <TextBlock x:Name="NameOfItemTextBlock"
+                                               FontSize="20"
+                                               HorizontalAlignment="Stretch"
+                                               TextAlignment="Left"
+                                               Text="{Binding Path=ToStringName}"/>
+                                        </Grid>
+
+                                        <Grid Grid.Column="1">
+                                            <TextBlock x:Name="PriceTextBlock"
+                                               FontSize="20"
+                                               HorizontalAlignment="Left"
+                                               Text="{Binding Path=Price, StringFormat=c}"/>
+                                        </Grid>
+
+                                        <Grid Grid.Column="2">
+                                            <Button x:Name="DeleteItemButton"
+                                               Click="DeleteItemButton_Click"
+                                               Background="Red"
+                                               Content="X"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="25"
+                                               Foreground="Black"
+                                               Width="40"
+                                               Height="40"/>
+                                        </Grid>
+                                    </Grid>
+                                </ListViewItem>
+                            </StackPanel>
+
+
+                            <ListBox x:Name="SpecialInstructionsListBox"
+                                                 ItemsSource="{Binding Path=SpecialInstructions}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock x:Name="SpecialInstructionTextBlock"
+                                                       Text="{Binding}"
+                                                       FontSize="15"
+                                                       HorizontalAlignment="Left"
+                                                       TextAlignment="Center"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <Button x:Name="EditItemButton"
+                                    Content="Edit"
+                                    FontSize="15"
+                                    Click="EditItemButton_Click"
+                                    Height="50"
+                                    Width="400"/>
+                        </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <!--Subtotal-->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <TextBlock x:Name="SubtotalTextBlock"
+                           Text="Subtotal:"
+                           FontSize="30"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <TextBlock x:Name="SubtotalBindingTextBlock"
+                           Text="{Binding Path=SubTotal, StringFormat=c}"
+                           FontSize="30"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0 0 20 0"/>
+            </Grid>
+        </Grid>
+        
+        <!--Tax-->
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <TextBlock x:Name="TaxTextBlock"
+                           Text="Tax:"
+                           FontSize="30"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <TextBlock x:Name="TaxBindingTextBlock"
+                           Text="{Binding Path=Tax, StringFormat=c}"
+                           FontSize="30"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0 0 20 0"/>
+            </Grid>
+        </Grid>
+        
+        <!--Total-->
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <TextBlock x:Name="TotalTextBlock"
+                           Text="Total:"
+                           FontSize="30"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <TextBlock x:Name="TotalBindingTextBlock"
+                           Text="{Binding Path=Total, StringFormat=c}"
+                           FontSize="30"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0 0 20 0"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

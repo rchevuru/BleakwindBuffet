@@ -1,0 +1,60 @@
+﻿<!--
+    Author: Zachery Brunner
+    Class: SideSelectionScreen.xaml
+    Purpose: Allows the user to pick a side from the currently available sides
+    -->
+<UserControl x:Class="PointOfSale.CategoryScreens.SideSelectionScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.CategoryScreens"
+             mc:Ignorable="d" 
+        d:DesignHeight="550" d:DesignWidth="750">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="375"/>
+            <ColumnDefinition Width="375"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <StackPanel VerticalAlignment="Center">
+                <Button
+                    x:Name="DragonWaffleFriesButton"
+                    Content="Dragonborn Waffle Fries"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 100"
+                    Click="SwitchScreenToSelectedSideItem"/>
+                
+                <Button
+                    x:Name="FriedMiraakButton"
+                    Content="Fried Miraak"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedSideItem"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <StackPanel VerticalAlignment="Center">
+                <Button
+                    x:Name="MadOtarGritsButton"
+                    Content="Mad Otar Grits"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 100"
+                    Click="SwitchScreenToSelectedSideItem"/>
+                
+                <Button
+                    x:Name="VokunSaladButton"
+                    Content="Vokun Salad"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedSideItem"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

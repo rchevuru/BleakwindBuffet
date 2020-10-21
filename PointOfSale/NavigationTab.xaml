@@ -1,0 +1,57 @@
+﻿<!--
+    Author: Zachery Brunner
+    Class: NavigationTab.xaml
+    Purpose: Provide navigational controls to the MainWindow
+    -->
+    <UserControl x:Class="PointOfSale.NavigationTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="750">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Border x:Name="ReturnToItemSelectionScreenBorder"
+                    Visibility="Visible">
+                <Button x:Name="ReturnToMenuItemSelectionScreenButton"
+                    Height="150"
+                    Width="210"
+                    Content="Item Selection Screen"
+                    Click="ReturnToMenuItemSelectionScreenButton_Click"/>
+            </Border>
+
+            <Border x:Name="ReturnToCurrentComboScreenBorder"
+                    Visibility="Hidden">
+                <Button x:Name="ReturnToCurrentComboButton"
+                        Height="150"
+                        Width="210"
+                        Content="Return to Combo Customization"
+                        Click="ReturnToCurrentComboButton_Click"/>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Button x:Name="CancelOrderButton"
+                    Height="150"
+                    Width="210"
+                    Content="Cancel Order"
+                    Click="CancelOrderButton_Click"/>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Button x:Name="CompleteOrderButton"
+                    Height="150"
+                    Width="210"
+                    Content="Complete Order"
+                    Click="CompleteOrderButton_Click"/>
+        </Grid>
+    </Grid>
+</UserControl>

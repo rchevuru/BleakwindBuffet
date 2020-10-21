@@ -1,0 +1,313 @@
+﻿<!--
+    Author: Zachery Brunner
+    Class: ComboCustomizationScreen.xaml
+    Purpose: Provide user controls for editing the combo
+    -->
+<UserControl x:Class="PointOfSale.CustomizationScreens.ComboCustomizationScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.CustomizationScreens"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="750">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock x:Name="NameOfSideTextBox"
+                        Text="{Binding Path=Name}"
+                        FontSize="40"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Border x:Name="EntreeButtonsAndInformationBorder"
+                        Visibility="Visible">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="350"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Button x:Name="ChangeEntreeButton"
+                                    Content="Change Entree"
+                                    Click="ChangeEntreeButton_Click"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Button x:Name="EditEntreeButton"
+                                    Content="Edit Entree"
+                                    Click="EditEntreeButton_Click"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <TextBlock x:Name="NameOfEntree"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=EntreeName}"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="ChooseEntreeBorder"
+                        Visibility="Hidden">
+                    <Grid>
+                        <StackPanel x:Name="ChooseEntreeStackPanel"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Center">
+                            <Button x:Name="BriarheartBurgerEntreeButton"
+                                    Content="Briarheart&#10;Burger"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Width="100"
+                                    Click="ChangeEntreeSelectionButton_Click"/>
+
+                            <Button x:Name="DoubleDraugrEntreeButton"
+                                    Content="Double&#10;Draugr"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Width="100"
+                                    Click="ChangeEntreeSelectionButton_Click"/>
+
+                            <Button x:Name="ThalmorTripleEntreeButton"
+                                    Content="Thalmor&#10;Triple"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Width="100"
+                                    Click="ChangeEntreeSelectionButton_Click"/>
+
+                            <Button x:Name="GardenOrcOmeletteEntreeButton"
+                                    Content="Garden Orc&#10;Omelette"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Width="100"
+                                    Click="ChangeEntreeSelectionButton_Click"/>
+
+                            <Button x:Name="PhillyPoacherEntreeButton"
+                                    Content="Philly&#10;Poacher"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Width="100"
+                                    Click="ChangeEntreeSelectionButton_Click"/>
+
+                            <Button x:Name="SmokehouseSkeletonEntreeButton"
+                                    Content="Smokehouse&#10;Skeleton"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Width="100"
+                                    Click="ChangeEntreeSelectionButton_Click"/>
+
+                            <Button x:Name="ThugsTBoneEntreeButton"
+                                    Content="Thugs&#10;T-Bone"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Width="100"
+                                    Click="ChangeEntreeSelectionButton_Click"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Border x:Name="SideButtonsAndInformationBorder"
+                        Visibility="Visible">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="350"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Button x:Name="ChangeSideButton"
+                                Content="Change Side"
+                                Click="ChangeSideButton_Click"/>
+                        </Grid>
+                        
+                        <Grid Grid.Column="1">
+                            <Button x:Name="EditSideButton"
+                                Content="Edit Side"
+                                Click="EditSideButton_Click"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <TextBlock x:Name="NameOfSide"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding Path=SideName}"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="ChooseSideBorder"
+                        Visibility="Hidden">
+                    <StackPanel x:Name="ChooseSideStackPanel"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+
+                        <Button x:Name="DragonbornWaffleFriesSideButton"
+                                Content="Dragonborn&#10;Waffle Fries"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeSideSelectionButton_Click"/>
+
+                        <Button x:Name="FriedMiraakSideButton"
+                                Content="Fried&#10;Miraak"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeSideSelectionButton_Click"/>
+
+                        <Button x:Name="MadOtarGritsSideButton"
+                                Content="Mad Otar&#10;Grits"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeSideSelectionButton_Click"/>
+
+                        <Button x:Name="VokunSaladSideButton"
+                                Content="Vokun&#10;Salad"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeSideSelectionButton_Click"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Border x:Name="DrinkButtonsAndInformationBorder"
+                        Visibility="Visible">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="350"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Button x:Name="ChangeDrinkButton"
+                                    Content="Change Drink"
+                                    Click="ChangeDrinkButton_Click"/>
+                        </Grid>
+                        
+                        <Grid Grid.Column="1">
+                            <Button x:Name="EditDrinkButton"
+                                    Content="Edit Drink"
+                                    Click="EditDrinkButton_Click"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <TextBlock x:Name="NameOfDrink"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding Path=DrinkName}"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="ChooseDrinkBorder"
+                        Visibility="Hidden">
+                    <StackPanel x:Name="ChooseDrinkStackPanel"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        
+                        <Button x:Name="AretinoAppleJuiceDrinkButton"
+                                Content="Aretino&#10;Apple Juice"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeDrinkSelectionButton_Click"/>
+
+                        <Button x:Name="CandlehearthCoffeeDrinkButton"
+                                Content="Candleheart&#10;Coffee"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeDrinkSelectionButton_Click"/>
+
+                        <Button x:Name="MarkarthMilkDrinkButton"
+                                Content="Markarth&#10;Milk"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeDrinkSelectionButton_Click"/>
+
+                        <Button x:Name="SailorSodaDrinkButton"
+                                Content="Sailor&#10;Soda"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeDrinkSelectionButton_Click"/>
+
+                        <Button x:Name="WarriorWaterDrinkButton"
+                                Content="Warrior&#10;Water"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Width="100"
+                                Click="ChangeDrinkSelectionButton_Click"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <StackPanel x:Name="InformationStackPanel">
+                        <TextBlock x:Name="PriceOfItemTextBlock"
+                                Text="Price:"
+                                FontSize="25"/>
+                        <TextBlock x:Name="CaloriesOfItem"
+                                Text="Calories:"
+                                FontSize="25"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <StackPanel x:Name="NumericStackPanel">
+                        <TextBlock x:Name="PriceOfItemBinded"
+                                Text="{Binding Path=Price, StringFormat=c}"
+                                FontSize="25"/>
+                        <TextBlock x:Name="CaloriesOfItemBinded"
+                                Text="{Binding Path=Calories}"
+                                FontSize="25"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Button x:Name="FinishedCustomizingComboButton"
+                        Content="Finished Customization"
+                        Click="FinishedCustomizingComboButton_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

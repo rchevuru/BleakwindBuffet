@@ -1,0 +1,90 @@
+﻿<!--
+    Author: Zachery Brunner
+    Class: EntreeSelectionScreen.xaml
+    Purpose: Allows the user to pick an entree from the currently available entrees
+    -->
+<UserControl x:Class="PointOfSale.CategoryScreens.EntreeSelectionScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.CategoryScreens"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="750">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="375"/>
+            <ColumnDefinition Width="375"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="413"/>
+            <RowDefinition Height="137"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0">
+            <StackPanel>
+                <Button
+                    x:Name="BriarheartBurgerButton"
+                    Content="Briarheart Burger"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedEntreeItem"/>
+                
+                <Button
+                    x:Name="DoubleDraugrButton"
+                    Content="Double Draugr"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedEntreeItem"/>
+                
+                <Button
+                    x:Name="ThalmorTripleButton"
+                    Content="Thalmor Triple"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedEntreeItem"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <StackPanel>
+                <Button
+                    x:Name="GardenOrcOmeletteButton"
+                    Content="Garden Orc Omelette"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedEntreeItem"/>
+                
+                <Button
+                    x:Name="PhillyPoacherButton"
+                    Content="Philly Poacher"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedEntreeItem"/>
+                
+                <Button
+                    x:Name="SmokehouseSkeletonButton"
+                    Content="Smokehouse Skeleton"
+                    Height="125"
+                    Width="350"
+                    Margin="0 10 0 0"
+                    Click="SwitchScreenToSelectedEntreeItem"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Button
+                x:Name="ThugsTBoneButton"
+                Content="Thugs T-Bone"
+                Height="100"
+                Width="350"
+                Click="SwitchScreenToSelectedEntreeItem"/>
+        </Grid>
+    </Grid>
+</UserControl>

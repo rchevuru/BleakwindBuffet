@@ -1,0 +1,129 @@
+﻿<!--
+    Author: Zachery Brunner
+    Class: EntreeCustomizationScreen.xaml
+    Purpose: Customization screen for any entree on the menu-->
+<UserControl x:Class="PointOfSale.CustomizationScreens.EntreeCustomizationScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.CustomizationScreens"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="750">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock x:Name="NameOfSideTextBox"
+                    Text="{Binding Path=Name}"
+                    FontSize="40"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ListBox x:Name="IngredientsListBox"
+                        HorizontalContentAlignment="Center">
+                <CheckBox x:Name="BunCheckBox"
+                            Content="Include Bun"
+                            IsChecked="{Binding Path=Bun}"
+                            Visibility="Hidden"/>
+                <CheckBox x:Name="KetchupCheckBox"
+                            Content="Include Ketchup"
+                            IsChecked="{Binding Path=Ketchup}"/>
+                <CheckBox x:Name="MustardCheckBox"
+                            Content="Include Mustard"
+                            IsChecked="{Binding Path=Mustard}"/>
+                <CheckBox x:Name="PickleCheckBox"
+                            Content="Include Pickle"
+                            IsChecked="{Binding Path=Pickle}"/>
+                <CheckBox x:Name="CheeseCheckBox"
+                            Content="Include Cheese"
+                            IsChecked="{Binding Path=Cheese}"/>
+                <CheckBox x:Name="TomatoCheckBox"
+                            Content="Include Tomato"
+                            IsChecked="{Binding Path=Tomato}"/>
+                <CheckBox x:Name="LettuceCheckBox"
+                            Content="Include Lettuce"
+                            IsChecked="{Binding Path=Lettuce}"/>
+                <CheckBox x:Name="MayoCheckBox"
+                            Content="Include Mayo"
+                            IsChecked="{Binding Path=Mayo}"/>
+                <CheckBox x:Name="BaconCheckBox"
+                            Content="Include Bacon"
+                            IsChecked="{Binding Path=Bacon}"/>
+                <CheckBox x:Name="EggCheckBox"
+                            Content="Include Egg"
+                            IsChecked="{Binding Path=Egg}"/>
+                <CheckBox x:Name="BroccoliCheckBox"
+                            Content="Include Broccoli"
+                            IsChecked="{Binding Path=Broccoli}"/>
+                <CheckBox x:Name="MushroomsCheckBox"
+                            Content="Include Mushrooms"
+                            IsChecked="{Binding Path=Mushrooms}"/>
+                <CheckBox x:Name="CheddarCheckBox"
+                            Content="Include Cheddar"
+                            IsChecked="{Binding Path=Cheddar}"/>
+                <CheckBox x:Name="SirloinCheckBox"
+                            Content="Include Sirloin"
+                            IsChecked="{Binding Path=Sirloin}"/>
+                <CheckBox x:Name="OnionCheckBox"
+                            Content="Include Onion"
+                            IsChecked="{Binding Path=Onion}"/>
+                <CheckBox x:Name="RollCheckBox"
+                            Content="Include Roll"
+                            IsChecked="{Binding Path=Roll}"/>
+                <CheckBox x:Name="SausageLinkCheckBox"
+                            Content="Include Sausage Links"
+                            IsChecked="{Binding Path=SausageLink}"/>
+                <CheckBox x:Name="HashBrownsCheckBox"
+                            Content="Include Hash Browns"
+                            IsChecked="{Binding Path=HashBrowns}"/>
+                <CheckBox x:Name="PancakeCheckBox"
+                            Content="Include Pancakes"
+                            IsChecked="{Binding Path=Pancake}"/>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <StackPanel x:Name="InformationStackPanel">
+                        <TextBlock x:Name="PriceOfItemTextBlock"
+                               Text="Price:"
+                               FontSize="25"/>
+                        <TextBlock x:Name="CaloriesOfItem"
+                               Text="Calories:"
+                               FontSize="25"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <StackPanel x:Name="NumericStackPanel">
+                        <TextBlock x:Name="PriceOfItemBinded"
+                               Text="{Binding Path=Price, StringFormat=c}"
+                               FontSize="25"/>
+                        <TextBlock x:Name="CaloriesOfItemBinded"
+                               Text="{Binding Path=Calories}"
+                               FontSize="25"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
