@@ -7,6 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Click="CardPayment_Click" x:Name="DebitCardPayment" 
+                Grid.Row="0" FontSize="30" >Debit</Button>
+            <Button Click ="CardPayment_Click" x:Name="CreditCardPayment" 
+                Grid.Row="1" FontSize="30">Credit</Button>
+            <Button Click ="CashPayment_Click" x:Name="CashPayment" Grid.Row="2" FontSize="30">Cash</Button>
+            <Button Click ="ReturnToMenuItemSelectionScreenButton_Click" 
+                x:Name="ReturntoMenu" Grid.Row="3" FontSize="30">
+                Back</Button>
+        </Grid>
     </Grid>
 </UserControl>

@@ -14,4 +14,10 @@
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>..\..\BleakwindBuffet-CIS400-TA-Model-Solution-Fall-2020-1.2.0 (1)\BleakwindBuffet-CIS400-TA-Model-Solution-Fall-2020-1.2.0\PointOfSale\RoundRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

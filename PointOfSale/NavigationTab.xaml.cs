@@ -60,6 +60,11 @@ namespace PointOfSale
             orderControl.CancelOrder();
         }
 
+        public void CallCancelOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            CancelOrderButton_Click(sender, e);
+        }
+
         /// <summary>
         /// Completes the order, for now it has the same functionality as the cancel order button
         /// </summary>
@@ -67,7 +72,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            CancelOrderButton_Click(sender, e);
+            var orderControl = this.FindAncestor<OrderControl>();
+            orderControl.SwapScreen(new PaymentOptions());
+            //CancelOrderButton_Click(sender, e);
         }
 
         /// <summary>

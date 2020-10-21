@@ -149,6 +149,11 @@ namespace BleakwindBuffet.Data
             DisplayDate = string.Format("{0}", DateTime.Now);
         }
 
+        public Order()
+        {
+
+        }
+
         /// <summary>
         /// Helper function to calculate the total of the order
         /// </summary>
