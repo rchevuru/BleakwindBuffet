@@ -33,8 +33,14 @@ namespace PointOfSale
             get => CashDrawer.Quarters;
         }
 
-        public int DollarCents
+        public int HalfDollars
         {
+            get => CashDrawer.HalfDollars; 
+        }
+
+        public int DollarCents
+        { 
+        
             get => CashDrawer.Dollars;
         }
 
@@ -46,6 +52,31 @@ namespace PointOfSale
         public int TwoDollars
         {
             get => CashDrawer.Twos;
+        }
+
+        public int FiveDollars
+        {
+            get => CashDrawer.Fives;
+        }
+
+        public int TenDollars
+        {
+            get => CashDrawer.Tens;
+        }
+
+        public int TwentyDollars
+        {
+            get => CashDrawer.Twenties;
+        }
+
+        public int FiftyDollars
+        {
+            get => CashDrawer.Fifties;
+        }
+
+        public int HundredDollars
+        {
+            get => CashDrawer.Hundreds;
         }
     }
 }
