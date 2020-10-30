@@ -71,8 +71,28 @@ body {
 }
 
 /*My own code*/
-.menu-choices{
-    display: flex;
-    flex-direction: row; 
-    justify-content: space-between; 
+.combo{
+    color:red;
 }
+.menu-choice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ul.menu-list-drinks > li{
+    list-style-type: none;
+    display: block;
+    /*flex-direction: column; 
+    justify-content: space-evenly; */
+   
+    overflow-y: auto; 
+}
+
+.menu-choices-Sides {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column; 
+    overflow-y: auto;
+}
+
