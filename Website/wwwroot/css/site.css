@@ -71,8 +71,21 @@ body {
 }
 
 /*My own code*/
-.combo{
-    color:red;
+
+body {
+    background-image: url("../Background_image.jpg");
+    background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size:cover; 
+   color: whitesmoke;
+}
+
+.container{
+    color:white; 
+}
+
+.combo {
+    color: red;
 }
 .menu-choice {
     display: flex;
