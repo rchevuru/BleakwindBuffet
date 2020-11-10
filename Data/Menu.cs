@@ -146,7 +146,7 @@ namespace BleakwindBuffet.Data
                 return All;
             foreach (IOrderItem menu in All)
             {
-                if (menu.Name != null && menu.ToString().Contains(terms))
+                if (menu.Name != null && menu.Name.Contains(terms))
                     results.Add(menu);
             }
             return results;
@@ -223,7 +223,7 @@ namespace BleakwindBuffet.Data
             {
                 foreach (IOrderItem item in Items)
                 {
-                    if (item.Calories <= max) results.Add(item);
+                    if (item.Price <= max) results.Add(item);
                 }
                 return results;
             }
@@ -233,7 +233,7 @@ namespace BleakwindBuffet.Data
             {
                 foreach (IOrderItem item in Items)
                 {
-                    if (item.Calories >= min) results.Add(item);
+                    if (item.Price >= min) results.Add(item);
                 }
                 return results;
             }
@@ -241,7 +241,7 @@ namespace BleakwindBuffet.Data
             // Both minimum and maximum specified
             foreach (IOrderItem item in Items)
             {
-                if (item.Calories >= min && item.Calories <= max)
+                if (item.Price >= min && item.Price <= max)
                 {
                     results.Add(item);
                 }

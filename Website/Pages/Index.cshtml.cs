@@ -33,8 +33,8 @@ namespace Website.Pages
         {
             Items = Menu.Search(SearchTerms);
             Items = Menu.Category(Items, Types);
-            Items = Menu.FilterByCalories(Items, minCal, maxCal); 
-            Items = Menu.
+            Items = Menu.FilterByCalories(Items, minCal, maxCal);
+            Items = Menu.FilterByPrice(Items, minPrice, maxPrice); 
         }
        
     }
