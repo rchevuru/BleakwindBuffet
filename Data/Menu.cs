@@ -11,6 +11,7 @@ using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Sides;
 
 using Size = BleakwindBuffet.Data.Enums.Size;
+using System.Linq;
 
 namespace BleakwindBuffet.Data
 {
@@ -122,6 +123,130 @@ namespace BleakwindBuffet.Data
             fullMenu.AddRange(Drinks());
 
             return fullMenu;
+        }
+
+        public static IEnumerable<IOrderItem> Items { get; set; }
+
+        public static IEnumerable<IOrderItem> All { get { return Menu.FullMenu(); } }
+
+        public static string[] CategoryProperty
+        {
+            get => new string[]
+            {
+                "Entrees",
+                "Drinks",
+                "Sides"
+            };
+        }
+
+        public static IEnumerable<IOrderItem> Search(string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (terms == null)
+                return All;
+            foreach (IOrderItem menu in All)
+            {
+                if (menu.Name != null && menu.ToString().Contains(terms))
+                    results.Add(menu);
+            }
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> Category(IEnumerable<IOrderItem> items, IEnumerable<string> menuTypes)
+        {
+            if (menuTypes == null || menuTypes.Count() == 0) return items; 
+
+            // Filter the supplied collection of movies
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            foreach (IOrderItem item in Items)
+            {
+                if (item is Entree && menuTypes.Contains("Entrees"))
+                {
+                    results.Add(item);
+                }
+                else if (item is Drink && menuTypes.Contains("Drinks"))
+                {
+                    results.Add(item);
+                }
+                else if (item is Side && menuTypes.Contains("Sides"))
+                {
+                    results.Add(item);
+                }
+            }
+
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> movies, uint? min, uint? max)
+        {
+            if (min == null && max == null) return movies;
+
+            var results = new List<IOrderItem>();
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem item in Items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            // only a minimum specified
+            if (max == null)
+            {
+                foreach (IOrderItem item in Items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in Items)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> movies, double? min, double? max)
+        {
+            if (min == null && max == null) return movies;
+
+            var results = new List<IOrderItem>();
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem item in Items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            // only a minimum specified
+            if (max == null)
+            {
+                foreach (IOrderItem item in Items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in Items)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
         }
     }
 }

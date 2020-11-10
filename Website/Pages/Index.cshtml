@@ -10,7 +10,7 @@
         </div>
         <div id="filters">
             <h4>Category</h4>
-            @foreach (String category in Model.Category)
+            @foreach (string category in BleakwindBuffet.Data.Menu.CategoryProperty)
             {
                 <label>
                     <input type="checkbox" name="MPAARatings" value="@category" checked="@Model.Category.Contains(category)" />
