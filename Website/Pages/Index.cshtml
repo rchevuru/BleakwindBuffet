@@ -3,7 +3,39 @@
 @{
     ViewData["Title"] = "Home page";
 }
-    
+    <form id="=website">
+        <div id="search">
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
+            <input type="submit" value="Search"> 
+        </div>
+        <div id="filters">
+            <h4>Category</h4>
+            @foreach (String category in Model.Category)
+            {
+                <label>
+                    <input type="checkbox" name="MPAARatings" value="@category" checked="@Model.Category.Contains(category)" />
+                    @category
+                </label>
+            }
+            <div id="results">
+                <h1>Movie Results</h1>
+
+                <ul class="movie-list">
+                    @foreach (BleakwindBuffet.Data.IOrderItem item in @Model.Items)
+                    {
+                        <li>
+                            <div class="details">
+                                <h3 class="Name">@item.ToStringName</h3>
+                                <div class="Cal">@item.Calories</div>
+                                <div class="Price">@item.Price</div>
+                            </div>
+                            
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        </form>
         <div class="text-center">
             <h1 class="display-4">Welcome to Bleakwind Buffet</h1>
             <p>
@@ -74,4 +106,4 @@
                 </ul>
             </div>
         </div>
-  
+ 
