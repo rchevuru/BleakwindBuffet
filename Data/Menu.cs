@@ -168,11 +168,11 @@ namespace BleakwindBuffet.Data
         }
 
         /// <summary>
-        /// Filters the provided collection of movies
+        /// Filters the provided collection of menu items
         /// </summary>
-        /// <param name="items">The collection of movies to filter</param>
-        /// <param name="menuTypes">The ratings to include</param>
-        /// <returns>A collection containing only movies that match the filter</returns>
+        /// <param name="items">The collection of menu items to filter</param>
+        /// <param name="menuTypes">The types to include</param>
+        /// <returns>A collection containing only meu items that match the filter</returns>
         public static IEnumerable<IOrderItem> Category(IEnumerable<IOrderItem> items, IEnumerable<string> menuTypes)
         {
             if (menuTypes == null || menuTypes.Count() == 0) return items; 
@@ -200,11 +200,14 @@ namespace BleakwindBuffet.Data
         }
 
         /// <summary>
-        /// Filters the provided collection of Menu items
+        ///  Filters the provided collection of menu items
+        /// to those with calories falling within
+        /// the specified range
         /// </summary>
-        /// <param name="items">The collection of movies to filter</param>
-        /// <param name="ratings">The ratings to include</param>
-        /// <returns>A collection containing only movies that match the filter</returns>
+        /// <param name="items">The collection of menu items to filter</param>
+        /// <param name="min">The minimum range value/param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered menu item collection</returns>
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
         {
             if (min == null && max == null) return items;
@@ -240,6 +243,16 @@ namespace BleakwindBuffet.Data
             }
             return results;
         }
+
+        /// <summary>
+        ///  Filters the provided collection of menu items
+        /// to those with price falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="menu">The collection of menu items to filter</param>
+        /// <param name="min">The minimum range value/param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered menu item collection</returns>
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
         {
             if (min == null && max == null) return menu;

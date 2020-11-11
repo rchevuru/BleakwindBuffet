@@ -17,10 +17,21 @@ namespace Website.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        /// <summary>
+        /// gets and sets the Search terms 
+        /// </summary>
         public string SearchTerms { get; set; }
 
+        /// <summary>
+        /// gets and sets the menu types 
+        /// </summary>
         public string[] Category { get; set; } = new string[0];
 
+        /// <summary>
+        ///  /// <summary>
+        /// This property will get IOrder property and gets and sets in back end
+        /// </summary>
+        /// </summary>
         public IEnumerable<IOrderItem> Items { get; set; } 
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -28,7 +39,15 @@ namespace Website.Pages
             _logger = logger;
         }
 
-      
+        /// <summary>
+        /// Program runs to set the program with user response 
+        /// </summary>
+        /// <param name="SearchTerms">the string to be searched</param>
+        /// <param name="Types">The collection of menu items checked</param>
+        /// <param name="minCal">minumum calories from user input</param>
+        /// <param name="maxCal">>maximum calories from user input</param>
+        /// <param name="minPrice">mininimum price from user</param>
+        /// <param name="maxPrice">max price from user</param>
         public void OnGet(string SearchTerms,string[] Types, uint? minCal, uint? maxCal,  double? minPrice, double? maxPrice)
         {
             Items = Menu.Search(SearchTerms);
