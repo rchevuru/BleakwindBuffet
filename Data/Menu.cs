@@ -12,6 +12,7 @@ using BleakwindBuffet.Data.Sides;
 
 using Size = BleakwindBuffet.Data.Enums.Size;
 using System.Linq;
+using System.IO; 
 
 namespace BleakwindBuffet.Data
 {
@@ -125,10 +126,19 @@ namespace BleakwindBuffet.Data
             return fullMenu;
         }
 
+        /// <summary>
+        /// This property will get IOrder property and gets and sets in back end
+        /// </summary>
         public static IEnumerable<IOrderItem> Items { get; set; }
 
+        /// <summary>
+        /// This property gets the whole menu 
+        /// </summary>
         public static IEnumerable<IOrderItem> All { get { return Menu.FullMenu(); } }
 
+        /// <summary>
+        ///  Gets the Menu Types represented in the database 
+        /// </summary>
         public static string[] CategoryProperty
         {
             get => new string[]
@@ -139,6 +149,11 @@ namespace BleakwindBuffet.Data
             };
         }
 
+        /// <summary>
+        /// Searchs the database
+        /// </summary>
+        /// <param name="terms">user input for search</param>
+        /// <returns>the list of items searched</returns>
         public static IEnumerable<IOrderItem> Search(string terms)
         {
             List<IOrderItem> results = new List<IOrderItem>();
@@ -152,14 +167,20 @@ namespace BleakwindBuffet.Data
             return results;
         }
 
+        /// <summary>
+        /// Filters the provided collection of movies
+        /// </summary>
+        /// <param name="items">The collection of movies to filter</param>
+        /// <param name="menuTypes">The ratings to include</param>
+        /// <returns>A collection containing only movies that match the filter</returns>
         public static IEnumerable<IOrderItem> Category(IEnumerable<IOrderItem> items, IEnumerable<string> menuTypes)
         {
             if (menuTypes == null || menuTypes.Count() == 0) return items; 
 
-            // Filter the supplied collection of movies
+            // Filter the supplied collection of Menu types 
             List<IOrderItem> results = new List<IOrderItem>();
 
-            foreach (IOrderItem item in Items)
+            foreach (IOrderItem item in items)
             {
                 if (item is Entree && menuTypes.Contains("Entrees"))
                 {
@@ -178,15 +199,21 @@ namespace BleakwindBuffet.Data
             return results;
         }
 
-        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> movies, uint? min, uint? max)
+        /// <summary>
+        /// Filters the provided collection of Menu items
+        /// </summary>
+        /// <param name="items">The collection of movies to filter</param>
+        /// <param name="ratings">The ratings to include</param>
+        /// <returns>A collection containing only movies that match the filter</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
         {
-            if (min == null && max == null) return movies;
+            if (min == null && max == null) return items;
 
             var results = new List<IOrderItem>();
             // only a maximum specified
             if (min == null)
             {
-                foreach (IOrderItem item in Items)
+                foreach (IOrderItem item in items)
                 {
                     if (item.Calories <= max) results.Add(item);
                 }
@@ -196,7 +223,7 @@ namespace BleakwindBuffet.Data
             // only a minimum specified
             if (max == null)
             {
-                foreach (IOrderItem item in Items)
+                foreach (IOrderItem item in items)
                 {
                     if (item.Calories >= min) results.Add(item);
                 }
@@ -204,7 +231,7 @@ namespace BleakwindBuffet.Data
             }
 
             // Both minimum and maximum specified
-            foreach (IOrderItem item in Items)
+            foreach (IOrderItem item in items)
             {
                 if (item.Calories >= min && item.Calories <= max)
                 {
@@ -213,15 +240,15 @@ namespace BleakwindBuffet.Data
             }
             return results;
         }
-        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> movies, double? min, double? max)
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
         {
-            if (min == null && max == null) return movies;
+            if (min == null && max == null) return menu;
 
             var results = new List<IOrderItem>();
             // only a maximum specified
             if (min == null)
             {
-                foreach (IOrderItem item in Items)
+                foreach (IOrderItem item in menu)
                 {
                     if (item.Price <= max) results.Add(item);
                 }
@@ -231,7 +258,7 @@ namespace BleakwindBuffet.Data
             // only a minimum specified
             if (max == null)
             {
-                foreach (IOrderItem item in Items)
+                foreach (IOrderItem item in menu)
                 {
                     if (item.Price >= min) results.Add(item);
                 }
@@ -239,7 +266,7 @@ namespace BleakwindBuffet.Data
             }
 
             // Both minimum and maximum specified
-            foreach (IOrderItem item in Items)
+            foreach (IOrderItem item in menu)
             {
                 if (item.Price >= min && item.Price <= max)
                 {
