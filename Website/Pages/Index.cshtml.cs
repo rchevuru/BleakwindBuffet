@@ -28,9 +28,7 @@ namespace Website.Pages
         public string[] Category { get; set; } = new string[0];
 
         /// <summary>
-        ///  /// <summary>
         /// This property will get IOrder property and gets and sets in back end
-        /// </summary>
         /// </summary>
         public IEnumerable<IOrderItem> Items { get; set; } 
 
