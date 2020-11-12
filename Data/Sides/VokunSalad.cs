@@ -22,6 +22,7 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         private string name = "Vokun Salad";
         private Size size = Size.Small;
+        private string description = "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges."; 
 
         /// <summary>
         /// Returns the name of the item
@@ -29,6 +30,11 @@ namespace BleakwindBuffet.Data.Sides
         public override string Name
         {
             get { return name; }
+        }
+
+        public override string Description
+        {
+            get => description;  
         }
 
         /// <summary>
@@ -79,6 +85,8 @@ namespace BleakwindBuffet.Data.Sides
                 }
             }
         }
+
+        
 
         /// <summary>
         /// Override ToString for side name return

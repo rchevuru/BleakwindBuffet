@@ -26,6 +26,7 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = true;
         private Size size = Size.Small;
         private SodaFlavor flavor = SodaFlavor.Cherry;
+        private string description = "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.";
 
         /// <summary>
         /// Property getter for the private name variable
@@ -33,6 +34,14 @@ namespace BleakwindBuffet.Data.Drinks
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description; 
         }
 
         /// <summary>

@@ -20,6 +20,11 @@ namespace BleakwindBuffet.Data
         string ToStringName { get; }
 
         /// <summary>
+        /// Property that returns the description of item 
+        /// </summary>
+        string Description { get; }
+
+        /// <summary>
         /// The customization screen of the item
         /// </summary>
         object Screen { get; set; }

@@ -24,6 +24,7 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = true;
         private bool lemon = false;
         private Size size = Size.Small;
+        private string description = " It’s water. Just water."; 
 
         /// <summary>
         /// Property getter for the private name variable
@@ -31,6 +32,14 @@ namespace BleakwindBuffet.Data.Drinks
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description; 
         }
 
         /// <summary>

@@ -16,6 +16,8 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public abstract string Name { get; }
 
+        public abstract string Description { get; }
+
         /// <summary>
         /// Property that is used in binding for WPF, allows me to bind to the ToString method in each of the deriving classes
         /// </summary>

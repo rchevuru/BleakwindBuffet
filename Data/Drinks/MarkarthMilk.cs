@@ -24,6 +24,7 @@ namespace BleakwindBuffet.Data.Drinks
         private string name = "Markarth Milk";
         private bool ice = false;
         private Size size = Size.Small;
+        private string description = " Hormone-free organic 2% milk."; 
 
         /// <summary>
         /// Property getter for the private name variable
@@ -31,6 +32,14 @@ namespace BleakwindBuffet.Data.Drinks
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description; 
         }
 
         /// <summary>

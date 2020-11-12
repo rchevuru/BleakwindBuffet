@@ -22,6 +22,7 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         private string name = "Fried Miraak";
         private Size size = Size.Small;
+        private string description = "Perfectly prepared hash brown pancakes."; 
 
         /// <summary>
         /// Returns the name of the item
@@ -30,6 +31,15 @@ namespace BleakwindBuffet.Data.Sides
         {
             get { return name; }
         }
+
+        /// <summary>
+        /// Returns the description of the item
+        /// </summary>
+        public override string Description
+        {
+            get => description;
+        }
+
 
         /// <summary>
         /// Property getter/setter for private size variable

@@ -22,6 +22,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool sirloin = true;
         private bool onion = true;
         private bool roll = true;
+        private string description = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll."; 
 
         /// <summary>
         /// Property getter for the private name variable
@@ -29,6 +30,14 @@ namespace BleakwindBuffet.Data.Entrees
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description;
         }
 
         /// <summary>

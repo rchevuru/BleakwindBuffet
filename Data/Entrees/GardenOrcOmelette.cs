@@ -23,6 +23,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool mushrooms = true;
         private bool tomato = true;
         private bool cheddar = true;
+        private string description = "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese."; 
 
         /// <summary>
         /// Property getter for the private name variable
@@ -32,6 +33,13 @@ namespace BleakwindBuffet.Data.Entrees
             get { return name; }
         }
 
+        /// <summary>
+        ///  Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// Property getter/setter for private broccoli variable
         /// </summary>

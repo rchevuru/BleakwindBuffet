@@ -17,6 +17,11 @@ namespace BleakwindBuffet.Data.Sides
         public abstract string Name { get; }
 
         /// <summary>
+        /// Property that returns the description of the item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
         /// Property that is used in binding for WPF, allows me to bind to the ToString method in each of the deriving classes
         /// </summary>
         public virtual string ToStringName { get { return ToString(); } }

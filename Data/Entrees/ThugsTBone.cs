@@ -19,13 +19,22 @@ namespace BleakwindBuffet.Data.Entrees
         /// Private variable declaration
         /// </summary>
         private string name = "Thugs T-Bone";
-        
+        private string description = "Juicy T-Bone, not much else to say."; 
+
         /// <summary>
         /// Property getter for the private name variable
         /// </summary>
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description; 
         }
 
         /// <summary>

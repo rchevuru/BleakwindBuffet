@@ -22,6 +22,7 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         private string name = "Dragonborn Waffle Fries";
         private Size size = Size.Small;
+        private string description = "Crispy fried potato waffle fries."; 
 
         /// <summary>
         /// Returns the name of the item
@@ -29,6 +30,14 @@ namespace BleakwindBuffet.Data.Sides
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Returns the description of the item
+        /// </summary>
+        public override string Description
+        {
+            get => description; 
         }
 
         /// <summary>

@@ -26,6 +26,7 @@ namespace BleakwindBuffet.Data.Drinks
         private bool decaf = false;
         private bool roomForCream = false;
         private Size size = Size.Small;
+        private string description = "Fair trade, fresh ground dark roast coffee."; 
 
         /// <summary>
         /// Property getter for the private name variable
@@ -33,6 +34,14 @@ namespace BleakwindBuffet.Data.Drinks
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description; 
         }
 
         /// <summary>

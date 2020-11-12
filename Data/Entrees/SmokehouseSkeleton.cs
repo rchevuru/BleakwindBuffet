@@ -23,6 +23,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool egg = true;
         private bool hashBrowns = true;
         private bool pancake = true;
+        private string description = " Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice."; 
 
         /// <summary>
         /// Property getter for the private name variable
@@ -30,6 +31,14 @@ namespace BleakwindBuffet.Data.Entrees
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description; 
         }
 
         /// <summary>

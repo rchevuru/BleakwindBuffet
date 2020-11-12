@@ -27,6 +27,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool tomato = true;
         private bool lettuce = true;
         private bool mayo = true;
+        private string description = "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
 
         /// <summary>
         /// Property getter for the private name variable
@@ -34,6 +35,14 @@ namespace BleakwindBuffet.Data.Entrees
         public override string Name
         {
             get { return name; }
+        }
+
+        /// <summary>
+        /// Property getter for the private description variable
+        /// </summary>
+        public override string Description
+        {
+            get => description; 
         }
 
         /// <summary>
