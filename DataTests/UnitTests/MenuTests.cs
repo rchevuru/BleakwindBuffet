@@ -2,6 +2,8 @@
  * Author: Zachery Brunner
  * Class: MenuTests.cs
  * Purpose: Test the Menu.cs class in the Data library
+ * Modifier: Rana Chevuru 
+ * Date Modified: 11/13/2020
  */
 using Xunit;
 
@@ -104,7 +106,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
 
             Assert.Equal(expectedNumberOfItemsInDrinksList, drinks.Count);
 
-            for(int i = 0; i < expectedNumberOfItemsInDrinksList; i++)
+            for (int i = 0; i < expectedNumberOfItemsInDrinksList; i++)
             {
                 if (drinks[i] is AretinoAppleJuice)
                 {
@@ -290,6 +292,18 @@ namespace BleakwindBuffet.DataTests.UnitTests
             List<IOrderItem> fullMenu = (List<IOrderItem>)FM;
 
             Assert.Equal(fullMenu.Count, expectedNumberOfMenuItems);
+        }
+
+        [Fact]
+        public void ShouldReturnFullMenuWhenItsAll()
+        {
+            FullMenuMethodShouldHaveAllItemsOnMenu();
+        }
+
+        [Fact]
+        public void ShouldReturnTheCorrectTypes()
+        {
+           
         }
     }
 }

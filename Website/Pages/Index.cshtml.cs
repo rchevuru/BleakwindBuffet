@@ -48,8 +48,46 @@ namespace Website.Pages
         /// <param name="maxPrice">max price from user</param>
         public void OnGet(string SearchTerms,string[] Types, uint? minCal, uint? maxCal,  double? minPrice, double? maxPrice)
         {
-            Items = Menu.Search(SearchTerms);
-            Items = Menu.Category(Items, Types);
+            Items = Menu.All;
+            // Search menu name and description for the SearchTerms
+            if (SearchTerms != null)
+            {
+                //Items = Items.Where(item => item.Name != null && item.Name.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase) || item.Description != null && item.Description.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
+
+                string[] individual = SearchTerms.Split(" ");
+                IEnumerable<IOrderItem> terms = new List<IOrderItem>();
+                List<IOrderItem> result = new List<IOrderItem>();
+               foreach(string word in individual)
+                {
+                    terms = Items.Where(item => item.Name != null && item.Name.Contains(word, StringComparison.InvariantCultureIgnoreCase) || item.Description != null && item.Description.Contains(word, StringComparison.InvariantCultureIgnoreCase));
+                        result.AddRange(terms); 
+                }
+                Items = result; 
+            }
+
+            // Items = Menu.Search(SearchTerms);
+            if (Types != null || Types.Count() != 0)
+            {
+                Items = Items.Where(item => {
+                   
+                        if (item is Entree && Types.Contains("Entrees"))
+                        {
+                            return true; 
+                        }
+                        else if (item is Drink && Types.Contains("Drinks"))
+                        {
+                            return true; 
+                        }
+                        else if (item is Side && Types.Contains("Sides"))
+                        {
+                            return true; 
+                        }
+
+                    
+                    return false; 
+                });  
+            }
+            //Items = Menu.Category(Items, Types);
             Items = Menu.FilterByCalories(Items, minCal, maxCal);
             Items = Menu.FilterByPrice(Items, minPrice, maxPrice); 
         }

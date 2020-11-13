@@ -21,17 +21,17 @@
             <h4>Calories</h4>
             <div>
                
-                <input name="minCal" type="number" min="0" max="900" step="0.1" placeholder="min" />
+                <input name="minCal" type="number" min="0" max="900" step="10" placeholder="min" />
                 to
-                <input name="maxCal" type="number" min="0" max="900" step="0.1" placeholder="max" />
+                <input name="maxCal" type="number" min="0" max="900" step="10" placeholder="max" />
             </div>
 
             <h4>Price</h4>
             <div>
                 Between
-                <input name="minPrice" type="number" min="0" max="10" step="1" placeholder="min" />
+                <input name="minPrice" type="number" min="0" max="10" step=".1" placeholder="min" />
                 and
-                <input name="maxPrice" type="number" min="0" max="10" step="1" placeholder="max" />
+                <input name="maxPrice" type="number" min="0" max="10" step=".1" placeholder="max" />
             </div>
         </div>
 
@@ -46,6 +46,7 @@
                             <h3 class="Name">@item.ToStringName</h3>
                             <div class="Cal">@item.Price</div>
                             <div class="Price">@item.Calories</div>
+                            <div class="Description">@item.Description</div>
                         </div>
 
                     </li>
@@ -75,6 +76,7 @@
                                 <h3 class="name">@itemDrinks.ToStringName</h3>
                                 <p class="price">Price: @itemDrinks.Price</p>
                                 <p class="cal">Calories: @itemDrinks.Calories</p>
+                                <p class="description">@itemDrinks.Description </p>
                                 @if (itemDrinks.Name == "Sailor Soda")
                                 {
 
@@ -102,6 +104,7 @@
                                 <h3 class="name">@itemEntrees.ToStringName</h3>
                                 <p class="price">Price: @itemEntrees.Price</p>
                                 <p class="cal">Calories: @itemEntrees.Calories</p>
+                                <p class="description">@itemEntrees.Description </p>
                             </div>
                         </li>
                     }
@@ -118,6 +121,7 @@
                                 <h3 class="name">@itemSides.ToStringName</h3>
                                 <p class="price">Price: @itemSides.Price</p>
                                 <p class="cal">Calories: @itemSides.Calories</p>
+                                <p class="description">@itemSides.Description </p>
                             </div>
                         </li>
                     }

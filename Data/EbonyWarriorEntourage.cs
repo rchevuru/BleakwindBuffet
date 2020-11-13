@@ -31,6 +31,8 @@ namespace BleakwindBuffet.Data
         /// </summary>
         public string Name { get; } = "Ebony Warrior Entourage";
 
+        public string Description { get; } = "A combo meal with any side, drink, and entree."; 
+
         /// <summary>
         /// Just calls the Name property 
         /// </summary>

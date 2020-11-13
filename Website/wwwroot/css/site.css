@@ -145,3 +145,25 @@ ul.menu-list-drinks > li{
     overflow-y: auto;
 }
 
+@media(min-width: 491px){
+    .menu-choices-Sides{
+        display: flex;
+        flex-direction: column; 
+    }
+    .menu-list-drinks{
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .menu-choices-Entree{
+        display: flex;
+        flex-direction: column; 
+    }
+}
+
+@media(max-width: 490){
+    .menu-choice {
+        column-count: 1;
+    }
+}
+

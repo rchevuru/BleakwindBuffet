@@ -2,6 +2,8 @@
  * Author: Zachery Brunner
  * Class: EbonyWarriorEntourage.cs
  * Purpose: Test the EbonyWarriorEntourage.cs class in the Data library
+ * Modifier: Rana Chevuru
+ * Date Modified: 11/13/2020
  */
 using Xunit;
 
@@ -31,6 +33,15 @@ namespace DataTests.UnitTests
             var EWE = new EbonyWarriorEntourage();
 
             Assert.Equal(expectedName, EWE.Name);
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            string expectedDescription = "A combo meal with any side, drink, and entree.";
+            var EWE = new EbonyWarriorEntourage();
+
+            Assert.Equal(expectedDescription, EWE.Description); 
         }
 
         [Fact]
