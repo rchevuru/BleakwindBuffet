@@ -99,8 +99,7 @@ form#Menu {
 }
 
 #results ul.menu-search-list > li {
-    display: flex;
-    justify-content: center;
+   text-align: center;
 }
 #results h1 {
        text-align: center; 
@@ -129,41 +128,48 @@ body {
     justify-content: space-between;
 }
 
-ul.menu-list-drinks > li{
+/*ul.menu-list-drinks > li{
     list-style-type: none;
     display: block;
     /*flex-direction: column; 
-    justify-content: space-evenly; */
+    justify-content: space-evenly; 
    
-    overflow-y: auto; 
-}
+    overflow-y: auto; *
+} 
 
 .menu-choices-Sides {
     list-style-type: none;
     display: flex;
     flex-direction: column; 
     overflow-y: auto;
+}*/
+
+@media(max-width: 490) {
+    .menu-choice {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 25%; 
+    }
 }
 
 @media(min-width: 491px){
     .menu-choices-Sides{
         display: flex;
         flex-direction: column; 
+        width: 35%; 
     }
-    .menu-list-drinks{
+    .menu-list-drinks {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
+        width: 35%;
     }
 
-    .menu-choices-Entree{
+    .menu-choices-Entree {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
+        width: 35%;
     }
 }
 
-@media(max-width: 490){
-    .menu-choice {
-        column-count: 1;
-    }
-}
+
 

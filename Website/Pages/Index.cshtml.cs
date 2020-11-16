@@ -49,6 +49,7 @@ namespace Website.Pages
         public void OnGet(string SearchTerms,string[] Types, uint? minCal, uint? maxCal,  double? minPrice, double? maxPrice)
         {
             Items = Menu.All;
+            List<IOrderItem> result = new List<IOrderItem>();
             // Search menu name and description for the SearchTerms
             if (SearchTerms != null)
             {
@@ -56,15 +57,15 @@ namespace Website.Pages
 
                 string[] individual = SearchTerms.Split(" ");
                 IEnumerable<IOrderItem> terms = new List<IOrderItem>();
-                List<IOrderItem> result = new List<IOrderItem>();
+               
                foreach(string word in individual)
                 {
                     terms = Items.Where(item => item.Name != null && item.Name.Contains(word, StringComparison.InvariantCultureIgnoreCase) || item.Description != null && item.Description.Contains(word, StringComparison.InvariantCultureIgnoreCase));
-                        result.AddRange(terms); 
+                    result.AddRange(terms); 
                 }
-                Items = result; 
+               
             }
-
+            Items = result;
             // Items = Menu.Search(SearchTerms);
             if (Types != null || Types.Count() != 0)
             {
