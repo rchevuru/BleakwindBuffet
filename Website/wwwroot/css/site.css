@@ -122,13 +122,8 @@ body {
 .combo {
     color: red;
 }
-.menu-choice {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-/*ul.menu-list-drinks > li{
+/*
+ul.menu-list-drinks > li{
     list-style-type: none;
     display: block;
     /*flex-direction: column; 
@@ -145,32 +140,19 @@ body {
 }*/
 
 @media(max-width: 490) {
-    .menu-choices-Sides { 
-        display: flex;
+    .menu-choices { 
+        display: flex; 
         flex-direction: column; 
-       /* width: 25%; */
+        width: 25%; 
     }
-    .menu-list-drinks {
-
-    }
+    
 }
 
 @media(min-width: 491px){
-    .menu-choices-Sides{
+    .menu-choice {
         display: flex;
-        flex-direction: column; 
-        width: 35%; 
-    }
-    .menu-list-drinks {
-        display: flex;
-        flex-direction: column;
-        width: 35%;
-    }
-
-    .menu-choices-Entree {
-        display: flex;
-        flex-direction: column;
-        width: 35%;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }
 

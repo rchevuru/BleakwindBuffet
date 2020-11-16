@@ -127,7 +127,37 @@ namespace Website.Pages
                 
             }
             //Items = Menu.FilterByCalories(Items, minCal, maxCal);
-          
+            if (minPrice != null && maxPrice != null)
+            {
+                List<IOrderItem> result = new List<IOrderItem>();
+                Items = Items.Where(item =>
+                {
+                    if (item.Price >= minCal && item.Price <= maxCal)
+                    {
+                        return true;
+                    }
+
+                    return false;
+                });
+            }
+            else if (minPrice == null)
+            {
+                Items.Where(item =>
+                {
+                    if (item.Price >= maxPrice) return false;
+                    return false;
+                });
+
+            }
+            else if (maxCal == null)
+            {
+                Items = Items.Where(item =>
+                {
+                    if (item.Calories >= minPrice) return true;
+                    return false;
+                });
+
+            }
             //Items = Menu.FilterByPrice(Items, minPrice, maxPrice); 
         }
        
