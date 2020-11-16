@@ -145,10 +145,13 @@ body {
 }*/
 
 @media(max-width: 490) {
-    .menu-choice {
-        display: grid;
-        grid-template-columns: 1fr;
-        width: 25%; 
+    .menu-choices-Sides { 
+        display: flex;
+        flex-direction: column; 
+       /* width: 25%; */
+    }
+    .menu-list-drinks {
+
     }
 }
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -49,10 +52,11 @@ namespace Website.Pages
         public void OnGet(string SearchTerms,string[] Types, uint? minCal, uint? maxCal,  double? minPrice, double? maxPrice)
         {
             Items = Menu.All;
-            List<IOrderItem> result = new List<IOrderItem>();
+           
             // Search menu name and description for the SearchTerms
             if (SearchTerms != null)
             {
+                List<IOrderItem> result = new List<IOrderItem>();
                 //Items = Items.Where(item => item.Name != null && item.Name.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase) || item.Description != null && item.Description.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
 
                 string[] individual = SearchTerms.Split(" ");
@@ -63,11 +67,11 @@ namespace Website.Pages
                     terms = Items.Where(item => item.Name != null && item.Name.Contains(word, StringComparison.InvariantCultureIgnoreCase) || item.Description != null && item.Description.Contains(word, StringComparison.InvariantCultureIgnoreCase));
                     result.AddRange(terms); 
                 }
-               
+                Items = result;
             }
-            Items = result;
+            
             // Items = Menu.Search(SearchTerms);
-            if (Types != null || Types.Count() != 0)
+            if (Types.Count() != 0)
             {
                 Items = Items.Where(item => {
                    
@@ -88,9 +92,43 @@ namespace Website.Pages
                     return false; 
                 });  
             }
+
             //Items = Menu.Category(Items, Types);
-            Items = Menu.FilterByCalories(Items, minCal, maxCal);
-            Items = Menu.FilterByPrice(Items, minPrice, maxPrice); 
+           
+            if(minCal != null && maxCal != null)
+            {
+                List<IOrderItem> result = new List<IOrderItem>();
+                Items = Items.Where(item =>
+                {
+                    if(item.Calories >= minCal && item.Calories <= maxCal)
+                    {
+                        return true; 
+                    }
+                   
+                    return false; 
+                }); 
+            }
+            else if (minCal == null )
+            {
+                Items.Where(item =>
+                {
+                    if (item.Calories >= maxCal) return false;
+                    return false; 
+                }); 
+                
+            }
+            else if(maxCal == null)
+            {
+                Items = Items.Where(item =>
+                {
+                    if (item.Calories >= minCal) return true;
+                    return false; 
+                }); 
+                
+            }
+            //Items = Menu.FilterByCalories(Items, minCal, maxCal);
+          
+            //Items = Menu.FilterByPrice(Items, minPrice, maxPrice); 
         }
        
     }
